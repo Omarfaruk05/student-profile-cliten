@@ -6,14 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 const DisplayStudent = ({student, refetch, isLoading}) => {
     const navigate = useNavigate();
-    const {_id, name, roll, section, blood, gander, classname} =  student;
+    const {_id, photo, name, roll, section, blood, gander, classname} =  student;
 
     if(isLoading){
         return <Loading></Loading>
     }
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/student/${_id}`,
+        fetch(`https://tranquil-shore-01652.herokuapp.com/student/${_id}`,
         {
             method: 'DELETE',
            
@@ -40,13 +40,22 @@ const DisplayStudent = ({student, refetch, isLoading}) => {
     }
     return (
         <tr className='text-primary font-semibold'>
+            <td className='hidden md:block'>
+                <div class="avatar">
+                    <div class="mask mask-squircle w-12 h-12">
+                        <img src={photo} alt="Avatar Tailwind CSS Component" />
+                    </div>
+                </div>
+            </td>
             <td>{name}</td>
             <td>{classname}</td>
             <td>{roll}</td>
-            <td className='flex py-6'>
+            <td>
+                <div className='flex'>
                 <TrashIcon onClick={()=> handleDelete()} className='h-5 w-5 md:mr-2 text-red-500 cursor-pointer'></TrashIcon>
                 <PencilIcon  onClick={()=> navigateToUpdate(_id)}  className='h-5 w-5 md:mr-2 cursor-pointer'></PencilIcon>
                 <EyeIcon onClick={()=> navigateToProfile(_id)} className='h-5 w-5 cursor-pointer'></EyeIcon>
+                </div>
             </td>
         </tr>
     );

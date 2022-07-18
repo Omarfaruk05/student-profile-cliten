@@ -10,7 +10,7 @@ const Update = () => {
     const { handleSubmit, register, reset} = useForm();
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/profile/${id}`)
+        fetch(`https://tranquil-shore-01652.herokuapp.com/profile/${id}`)
         .then(res => res.json())
         .then(data => setProfile(data));
     },[profile, id]);
@@ -23,7 +23,7 @@ const Update = () => {
  
     const onSubmit =(data) => {
         console.log(data)
-        fetch(`http://localhost:5000/profile/${_id}`,
+        fetch(`https://tranquil-shore-01652.herokuapp.com/profile/${_id}`,
         {
             method: 'PATCH',
             headers: {

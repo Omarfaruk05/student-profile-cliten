@@ -12,6 +12,7 @@ const DisplayStudents = ({students, isLoading, refetch}) => {
                 <table className="table table-zebra w-full">
                     <thead className='text-secondary'>
                     <tr>
+                        <th className='hidden md:block'>Photo</th>
                         <th>Name</th>
                         <th>Class</th>
                         <th>Roll</th>

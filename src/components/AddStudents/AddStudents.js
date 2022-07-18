@@ -16,7 +16,7 @@ const AddStudents = ({refetch}) => {
         const student = {photo, name, roll, section, blood, gander, classname};
         console.log(student)
         
-        fetch("http://localhost:5000/student",
+        fetch("https://tranquil-shore-01652.herokuapp.com/student",
         {
             method: 'POST',
             headers: {

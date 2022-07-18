@@ -5,14 +5,14 @@ import Loading from '../Loading/Loading';
 
 const StudentProfile = () => {
     const {id} = useParams()
-    const {data: profile, isLoading, refetch } = useQuery ('studentProfile', () => fetch(`http://localhost:5000/profile/${id}`).then(res => res.json()));
+    const {data: profile, isLoading, refetch } = useQuery ('studentProfile', () => fetch(`https://tranquil-shore-01652.herokuapp.com/profile/${id}`).then(res => res.json()));
 
     if(isLoading){
         return <Loading></Loading>
     }
 
     return (
-        <div className=' bg-gradient-to-r from-accent to-primary h-[100vh]'>
+        <div className=' bg-gradient-to-r from-accent to-primary min-h-[100vh]'>
             <Link to="/"><h1 className='text-3xl text-center text-white font-bold pt-4 mb-4 cursor-pointer'>My Profile</h1></Link>
 
             <div className=''>
